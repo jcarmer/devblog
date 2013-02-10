@@ -1,0 +1,36 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$article-thumb-width: 280px;
+$article-thumb-height: 320px;
+$article-thumb-padding: 5px;
+
+.article-thumb {
+  display: inline-block;
+  width: $article-thumb-width;
+  height: $article-thumb-height;
+  padding: $article-thumb-padding;
+}
+
+.article-thumb-image-container {
+  display: table;
+  background-color: black;
+  border-radius: 5px;
+  padding: 10px;
+  height: 150px;
+  width: 100%;
+}
+
+.article-thumb-image-cell {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.article-thumb-title {
+  display: block;
+  font-size: 125%;
+  font-weight: bold;
+  margin-top: 16px;
+}

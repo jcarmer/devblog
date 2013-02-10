@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  media: 
+  alt_text: MyString
+
+two:
+  media: 
+  alt_text: MyString

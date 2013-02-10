@@ -1,0 +1,35 @@
+<% if @articles.any? %>
+    <h1>Articles</h1>
+    <% @articles.each do |article| %>
+        <div class="article-thumb">
+            <div class="article-thumb-image-container">
+                <div class="article-thumb-image-cell">
+                    <%= link_to(article) do %>
+                        <img src="http://localhost:3000/assets/mildthing-logo.png"/>
+                    <% end %>
+                </div>
+            </div>
+            <%= link_to(article, :class => "article-thumb-title") do %>
+                <%= article.title %>
+            <% end %>
+        </div>
+    <% end %>
+<% end %>
+
+<% if @projects.any? %>
+    <h1>Projects</h1>
+    <% @projects.each do |article| %>
+        <div class="article-thumb">
+            <div class="article-thumb-image-container">
+                <div class="article-thumb-image-cell">
+                    <%= link_to(article) do %>
+                        <%= image_tag article.image.media.url(:medium) %>
+                    <% end %>
+                </div>
+            </div>
+            <%= link_to(article, :class => "article-thumb-title") do %>
+                <%= article.title %>
+            <% end %>
+        </div>
+    <% end %>
+<% end %>

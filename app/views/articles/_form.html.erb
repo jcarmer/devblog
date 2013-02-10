@@ -1,0 +1,74 @@
+<script>
+    $(function(){
+      $("#article_content").on("change keyup", function(){
+          $.ajax({
+              url: "/articles/preview",
+              type: "POST",
+              data: { text: $("#article_content").val() },
+              success: function(data) {
+                  $("#article_content_preview").html(data);
+              }
+          });
+      })
+    })
+</script>
+<%= form_for(@article) do |f| %>
+    <% if @article.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+            <ul>
+                <% @article.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div class="row">
+        <div class="span6">
+            <%= f.label :title %>
+            <input
+                id="article_title"
+                name="article[title]"
+                class="span6"
+                type="text" value="<%= @article.title %>"/>
+        </div>
+        <div class="span3">
+            <%= f.label :category_id %>
+            <%= collection_select(:article, :category_id, @all_categories, :id, :name) %>
+        </div>
+        <div class="span3">
+            <%= f.label :priority %>
+            <%= f.number_field :priority %>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="skip6 span6">
+            <%= f.label :image_id %>
+            <%= collection_select(:article, :image_id, @all_images, :id, :alt_text) %>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span6">
+            <%= f.label :content %>
+            <textarea
+                id="article_content"
+                name="article[content]"
+                class="span6"
+                rows="20"
+                type="text"><%= @article.content %></textarea>
+        </div>
+        <div class="span6">
+            <label>Preview</label>
+            <div id="article_content_preview">
+                <%=raw RedCloth.new(@article.content).to_html if @article.content %>
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <%= f.submit %>
+    </div>
+<% end %>

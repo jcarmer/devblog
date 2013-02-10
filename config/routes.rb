@@ -1,4 +1,25 @@
 Devblog::Application.routes.draw do
+  get "home/index"
+
+  resources :links
+
+
+  resources :categories
+
+
+  resources :article_comments
+
+
+  resources :articles do
+    collection do
+      post 'preview'
+    end
+  end
+
+
+  resources :images
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +69,7 @@ Devblog::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 
