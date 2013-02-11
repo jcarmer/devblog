@@ -22,5 +22,17 @@
 
 </div>
 
+<% if admin_signed_in? %>
+<div class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="navbar-inner">
+        <div class="pull-right">
+            <ul class="nav">
+                <li><%= link_to('Logout', destroy_admin_session_path, :method => :delete)  %></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<% end %>
+
 </body>
 </html>
