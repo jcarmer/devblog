@@ -5,7 +5,7 @@
             <div class="article-thumb-image-container">
                 <div class="article-thumb-image-cell">
                     <%= link_to(article) do %>
-                        <img src="http://localhost:3000/assets/mildthing-logo.png"/>
+                        <img src="<%= article.image.media.url(:thumb) %>"/>
                     <% end %>
                 </div>
             </div>
