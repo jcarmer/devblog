@@ -3,13 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $article-thumb-width: 280px;
-$article-thumb-height: 320px;
 $article-thumb-padding: 5px;
+
+$article-image-height: 150px;
 
 .article-thumb {
   display: inline-block;
+  vertical-align: top;
   width: $article-thumb-width;
-  height: $article-thumb-height;
   padding: $article-thumb-padding;
 }
 
@@ -18,7 +19,7 @@ $article-thumb-padding: 5px;
   background-color: black;
   border-radius: 5px;
   padding: 10px;
-  height: 150px;
+  height: $article-image-height;
   width: 100%;
 }
 
@@ -29,7 +30,7 @@ $article-thumb-padding: 5px;
 }
 
 .article-thumb-image-cell img {
-  max-height: 150px;
+  max-height: $article-image-height;
 }
 
 .article-thumb-title {
