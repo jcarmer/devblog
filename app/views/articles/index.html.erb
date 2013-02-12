@@ -12,7 +12,7 @@
 
 <% @articles.each do |article| %>
   <tr>
-    <td><%= article.content %></td>
+    <td><%= truncate(article.content, :length => 32) %></td>
     <td><%= article.category.name if article.category%></td>
     <td><%= article.priority %></td>
     <td><%= link_to 'Show', article %></td>
