@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Title</th>
     <th>Content</th>
     <th>Category</th>
     <th>Priority</th>
@@ -12,6 +13,7 @@
 
 <% @articles.each do |article| %>
   <tr>
+    <td><%= article.title %></td>
     <td><%= truncate(article.content, :length => 32) %></td>
     <td><%= article.category.name if article.category%></td>
     <td><%= article.priority %></td>
