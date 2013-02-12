@@ -5,7 +5,8 @@
             <div class="article-thumb-image-container">
                 <div class="article-thumb-image-cell">
                     <%= link_to(article) do %>
-                        <img src="<%= article.image.media.url(:thumb) %>"/>
+                        <img style="max-height: 150px;"
+                             src="<%= article.image.media.url(:medium) if article.image and article.image.media %>"/>
                     <% end %>
                 </div>
             </div>
@@ -23,7 +24,7 @@
             <div class="article-thumb-image-container">
                 <div class="article-thumb-image-cell">
                     <%= link_to(article) do %>
-                        <%= image_tag article.image.media.url(:medium) %>
+                        <% image_tag article.image.media.url(:medium) if article.image and article.image.media %>
                     <% end %>
                 </div>
             </div>

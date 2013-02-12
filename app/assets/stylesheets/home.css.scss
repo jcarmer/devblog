@@ -28,6 +28,10 @@ $article-thumb-padding: 5px;
   text-align: center;
 }
 
+.article-thumb-image-cell img {
+  max-height: 150px;
+}
+
 .article-thumb-title {
   display: block;
   font-size: 125%;
