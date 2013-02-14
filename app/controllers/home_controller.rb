@@ -3,7 +3,7 @@ class HomeController < ApplicationController
     @project_category = Category.find_by_name("Projects")
     @article_category = Category.find_by_name("Articles")
 
-    @projects = Article.find_all_by_category_id(@project_category.id)
-    @articles = Article.find_all_by_category_id(@article_category.id)
+    @projects = Article.find_all_by_category_id(@project_category.id).order(:priority)
+    @articles = Article.find_all_by_category_id(@article_category.id).order(:priority)
   end
 end
